@@ -16,20 +16,27 @@ ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
 ```
 refs http://askubuntu.com/questions/53553/how-do-i-retrieve-the-public-key-from-a-ssh-private-key
 
-### SSH - Login 
+## SSH - Login 
 
-#### SSH - Login with username & port
+#### Login with username & port
 ```
 ssh username@ip -p [port-number]
 ```
-#### SSH - Login with Keypem
+#### Login with Keypem
 ```
 chmod 400 key.pem
-ssh -i key.pem username@ip
+ssh -i key.pem username@ip -p [port-number]
 ```
-#### SSH - login with rsa
+#### login with rsa
 ```
-updating...
+#backup current id.rsa
+mv ~/.ssh/id.rsa ~/.ssh/id.rsa.bak
+mv ~/.ssh/id.rsa.pub ~/.ssh/id.rsa.pub bak
+
+#copy all rsa to ~/.ssh/
+cp file.rsa ~/.ssh/
+
+ssh username@ip -p [port-number]
 ```
 
 
