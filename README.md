@@ -38,6 +38,11 @@ cp file.rsa ~/.ssh/
 
 ssh username@ip -p [port-number]
 ```
+# SCP
+### Copy file from local to remote server
+```
+scp path/to/file.ext username@hostname://path/to/folder/
+```
 # Database
 ## PostgreSQL
 ### Remote connect
