@@ -18,16 +18,16 @@ refs http://askubuntu.com/questions/53553/how-do-i-retrieve-the-public-key-from-
 
 ## SSH - Login 
 
-#### Login with username & port
+### Login with username & port
 ```
 ssh username@ip -p [port-number]
 ```
-#### Login with Keypem
+### Login with Keypem
 ```
 chmod 400 key.pem
 ssh -i key.pem username@ip -p [port-number]
 ```
-#### login with rsa
+### login with rsa
 ```
 #backup current id.rsa
 mv ~/.ssh/id.rsa ~/.ssh/id.rsa.bak
@@ -38,6 +38,9 @@ cp file.rsa ~/.ssh/
 
 ssh username@ip -p [port-number]
 ```
-
-
-
+# Database
+## PostgreSQL
+### Remote connect
+```
+psql -U username -h hostname/ip/urn database-name
+```
