@@ -54,3 +54,7 @@ psql -U username -h hostname/ip/urn database-name
 ```
 find . -type f -exec sh -c '>{}' \;
 ```
+### Check number of nodes in current 
+```
+for dir in *; do [ -d "$dir" ] && echo "$dir" && find "$dir" | wc -l; done
+```
