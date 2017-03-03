@@ -49,3 +49,8 @@ scp path/to/file.ext username@hostname://path/to/folder/
 ```
 psql -U username -h hostname/ip/urn database-name
 ```
+# File and folder
+### Empty all files in current folder
+```
+find . -type f -exec sh -c '>{}' \;
+```
