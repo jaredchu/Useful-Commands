@@ -71,3 +71,16 @@ cp .env.example .env
 php artisan key:generate
 php artisan config:cache
 ```
+# Mysql on MAC
+### Start MySQL
+```
+sudo /usr/local/mysql/support-files/mysql.server start
+```
+### Stop MySQL
+```
+sudo /usr/local/mysql/support-files/mysql.server stop
+```
+### Restart MySQL
+```
+sudo /usr/local/mysql/support-files/mysql.server restart
+```
