@@ -84,3 +84,13 @@ sudo /usr/local/mysql/support-files/mysql.server stop
 ```
 sudo /usr/local/mysql/support-files/mysql.server restart
 ```
+### Reset root password
+```
+sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables
+mysql -uroot
+UPDATE mysql.user SET authentication_string=PASSWORD('123456') WHERE User='root';
+FLUSH PRIVILEGES;
+exit
+
+sudo /usr/local/mysql/support-files/mysql.server restart
+```
