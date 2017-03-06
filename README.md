@@ -58,3 +58,10 @@ find . -type f -exec sh -c '>{}' \;
 ```
 for dir in *; do [ -d "$dir" ] && echo "$dir" && find "$dir" | wc -l; done
 ```
+
+# Java
+### Run java spring with port
+```
+java -Dserver.port=$PORT -jar target/file.jar
+```
+
