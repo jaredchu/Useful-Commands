@@ -88,7 +88,7 @@ sudo /usr/local/mysql/support-files/mysql.server restart
 ```
 sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables
 mysql -uroot
-UPDATE mysql.user SET authentication_string=PASSWORD('123456') WHERE User='root';
+UPDATE mysql.user SET authentication_string=PASSWORD('root') WHERE User='root';
 FLUSH PRIVILEGES;
 exit
 
