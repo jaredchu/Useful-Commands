@@ -64,4 +64,10 @@ for dir in *; do [ -d "$dir" ] && echo "$dir" && find "$dir" | wc -l; done
 ```
 java -Dserver.port=$PORT -jar target/file.jar
 ```
-
+# Laravel
+### Fix project not run the in first time install
+```
+cp .env.example .env
+php artisan key:generate
+php artisan config:cache
+```
