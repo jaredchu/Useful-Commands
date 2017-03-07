@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
+#Configuration
+JC_ROOT_FOLDER="/var/www/adapt/public/"
+
 yum install -y php70 php70-cli php70-fpm php70-gd php70-mysqlnd php70-json php70-xml php70-mbstring php70-pecl-zip php70-mcrypt
 yum install -y nginx
-mkdir -p /var/www/adapt/release/public/
-chmod 755 /var/www/adapt/release/public/
+mkdir -p ${JC_ROOT_FOLDER}
+chmod 755 ${JC_ROOT_FOLDER}
+
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 echo "
-
-# For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
 
 user nginx;
 worker_processes auto;
@@ -44,16 +44,13 @@ http {
     # for more information.
     include /etc/nginx/conf.d/*.conf;
 
-    index index.php index.html index.htm;
+    index  index.php index.html index.htm;
 
     server {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  localhost;
-        root         /var/www/adapt/release/public/;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+        root         ${JC_ROOT_FOLDER};
 
         location / {
         }
@@ -61,60 +58,22 @@ http {
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
         #
         location ~ \.php$ {
-        #    root           html;
-            fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+            root           ${JC_ROOT_FOLDER};
+            fastcgi_pass   127.0.0.1:9000;
             fastcgi_index  index.php;
-            fastcgi_param  SCRIPT_FILENAME  /var/www/adapt/release/public$fastcgi_script_name;
-            include        fastcgi_params;
+            fastcgi_param  SCRIPT_FILENAME  ${JC_ROOT_FOLDER}index.php;
+            include        /etc/nginx/fastcgi_params;
         }
-
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        #location ~ /\.ht {
-        #    deny  all;
-        #}
     }
-
-# Settings for a TLS enabled server.
-#
-#    server {
-#        listen       443 ssl;
-#        listen       [::]:443 ssl;
-#        server_name  localhost;
-#        root         /usr/share/nginx/html;
-#
-#        ssl_certificate "/etc/pki/nginx/server.crt";
-#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-#        # It is *strongly* recommended to generate unique DH parameters
-#        # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
-#        #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
-#        ssl_session_cache shared:SSL:1m;
-#        ssl_session_timeout  10m;
-#        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-#        ssl_ciphers HIGH:SEED:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!RSAPSK:!aDH:!aECDH:!EDH-DSS-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!SRP;
-#        ssl_prefer_server_ciphers on;
-#
-#        # Load configuration files for the default server block.
-#        include /etc/nginx/default.d/*.conf;
-#
-#        location / {
-#        }
-#
-#        error_page 404 /404.html;
-#            location = /40x.html {
-#        }
-#
-#        error_page 500 502 503 504 /50x.html;
-#            location = /50x.html {
-#        }
-#    }
-
 }
 
-
 " > /etc/nginx/nginx.conf
+
 service php-fpm restart
 service nginx restart
-echo "<?php echo 'OK'" > /var/www/adapt/release/public/index.php
-echo "OK" > /var/www/adapt/release/public/index.html
+
+#create test files
+echo "<?php
+phpinfo();
+" > ${JC_ROOT_FOLDER}index.php
+echo "OK" > ${JC_ROOT_FOLDER}index.html
