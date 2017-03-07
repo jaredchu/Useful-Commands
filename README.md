@@ -94,3 +94,12 @@ exit
 
 sudo /usr/local/mysql/support-files/mysql.server restart
 ```
+# LEMP
+### Install LEMP on AWS AMI
+```
+sudo -i
+wget https://github.com/jaredchu/useful-commands/blob/master/aws-php-fcgi.sh
+chmod +x aws-php-fcgi.sh
+nano aws-php-fcgi.sh # edit JC_ROOT_FOLDER
+./aws-php-fcgi.sh
+```
