@@ -1,7 +1,7 @@
 # Linux Useful Commands
 My linux useful commands with simple explaination
 
-[![Travis](https://img.shields.io/travis/jaredchu/useful-commands.svg)]()
+[![Travis](https://img.shields.io/travis/jaredchu/useful-commands.svg)](https://travis-ci.org/jaredchu/useful-commands)
 
 # SSH
 ## SSH - Keygen
