@@ -6,4 +6,4 @@ env:
   - OS_TYPE=centos OS_VERSION=7
 
 script:
-    - aws-php-fcgi.sh
+  - bash aws-php-fcgi.sh
