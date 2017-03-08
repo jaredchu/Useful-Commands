@@ -1,0 +1,9 @@
+language: bash
+
+sudo: required
+env:
+  #matrix:
+  - OS_TYPE=centos OS_VERSION=7
+
+script:
+    - aws-php-fcgi.sh
