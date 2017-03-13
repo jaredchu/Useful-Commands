@@ -16,4 +16,4 @@ before_install:
   - sudo docker pull centos:centos${OS_VERSION}
 
 script:
-  - bash aws-php-fcgi.sh
+  - aws-php-fcgi.sh ${OS_VERSION}
