@@ -1,9 +1,12 @@
 # script install composer automatically on UBUNTU
 cd ~
+if [ -f composer-install.sh ]; then
+    rm -f composer-install.sh
+fi
 if hash apt-get 2>/dev/null; then
-  sudo apt-get install -y php php-common php-mbstring php-dom
+  sudo apt-get install -y php php-common
 else
-  sudo yum install -y php php-common php-mbstring php-dom
+  sudo yum install -y php php-common
 fi
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
