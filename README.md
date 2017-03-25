@@ -109,3 +109,8 @@ chmod +x aws-php-fcgi.sh
 nano aws-php-fcgi.sh # edit JC_ROOT_FOLDER
 ./aws-php-fcgi.sh
 ```
+# Git
+### Fix file name too long
+```
+git config --system core.longpaths true
+```
