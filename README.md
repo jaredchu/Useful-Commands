@@ -77,6 +77,13 @@ cp .env.example .env
 php artisan key:generate
 php artisan config:cache
 ```
+### Update to latest NPM to run `npm run watch`
+```
+sudo npm install -g npm
+sudo npm install -g n
+sudo n stable
+```
+
 # Mysql on MAC
 ### Start MySQL
 ```
