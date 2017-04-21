@@ -83,6 +83,11 @@ sudo npm install -g npm
 sudo npm install -g n
 sudo n stable
 ```
+# Mysql
+### Dublicate db in the same server
+```
+mysqldump db_name | mysql new_db_name
+```
 
 # Mysql on MAC
 ### Start MySQL
