@@ -142,3 +142,8 @@ root	ALL=(ALL:ALL) ALL
 
 %sudo	ALL=(ALL:ALL) NOPASSWD:ALL
 ```
+# GIT
+### Recover deleted stash
+```
+gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+```
