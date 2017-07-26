@@ -72,7 +72,7 @@ java -Dserver.port=$PORT -jar target/file.jar
 # Laravel
 ### Install composer in a command
 ```
-wget https://raw.githubusercontent.com/jaredchu/useful-commands/master/composer-install.sh && chmod +x composer-install.sh && ./composer-install.sh
+curl -O composer-install.sh  https://goo.gl/7Yx7W6 && chmod +x composer-install.sh && ./composer-install.sh
 ```
 ### Fix project not run the in first time install
 ```
