@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # script install composer automatically on UBUNTU
 cd ~
 if [ -f composer-install.sh ]; then
