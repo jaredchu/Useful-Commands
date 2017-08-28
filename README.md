@@ -91,6 +91,10 @@ sudo n stable
 ```
 mysqldump db_name | mysql new_db_name
 ```
+### Dump db in remote server
+```
+mysqldump -P 3306 -h [ip_address] -u [uname] -p[pass] db_name > db_backup.sql
+```
 
 # Mysql on MAC
 ### Start MySQL
