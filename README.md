@@ -128,11 +128,6 @@ chmod +x aws-php-fcgi.sh
 nano aws-php-fcgi.sh # edit JC_ROOT_FOLDER
 ./aws-php-fcgi.sh
 ```
-# Git
-### Fix file name too long
-```
-git config --system core.longpaths true
-```
 # Sudo
 ### Sudo without password prompt
 ```
@@ -153,4 +148,8 @@ root	ALL=(ALL:ALL) ALL
 ### Recover deleted stash
 ```
 gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+```
+### Fix file name too long
+```
+git config --system core.longpaths true
 ```
