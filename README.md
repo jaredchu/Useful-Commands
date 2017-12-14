@@ -128,6 +128,11 @@ chmod +x aws-php-fcgi.sh
 nano aws-php-fcgi.sh # edit JC_ROOT_FOLDER
 ./aws-php-fcgi.sh
 ```
+### Change PHP cli version
+```
+sudo update-alternatives --set php /usr/bin/php5.6
+```
+
 # Sudo
 ### Sudo without password prompt
 ```
