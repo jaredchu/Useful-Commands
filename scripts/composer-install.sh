@@ -5,9 +5,9 @@ if [ -f composer-install.sh ]; then
     rm -f composer-install.sh
 fi
 if hash apt-get 2>/dev/null; then
-  sudo apt-get install -y php php-common
+  sudo apt-get install -y php php-common php-zip php-mbstring php-xml
 else
-  sudo yum install -y php php-common
+  sudo yum install -y php php-common php-zip php-mbstring php-xml
 fi
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
