@@ -63,6 +63,11 @@ find . -type f -exec sh -c '>{}' \;
 ```
 for dir in *; do [ -d "$dir" ] && echo "$dir" && find "$dir" | wc -l; done
 ```
+### Chmod all file and folder
+```
+find [dir_path] -type d -exec chmod 755 {} \;
+find [dir_path] -type f -exec chmod 644 {} \;
+```
 
 # Java
 ### Run java spring with port
