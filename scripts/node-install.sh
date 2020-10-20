@@ -10,7 +10,7 @@ mv ~/bin/node-latest ~/bin/node-latest__$(date +%F-%T)
 tar xvfJ $ARCHIVE_FILE -C ~/bin/
 mv ~/bin/$ARCHIVE_NAME ~/bin/node-latest
 
-echo "PATH="'"$HOME/bin/node-latest/bin:$PATH"'"" >> ~/.profile
+grep -qxF "PATH="'"$HOME/bin/node-latest/bin:$PATH"'"" ~/.profile || echo "PATH="'"$HOME/bin/node-latest/bin:$PATH"'"" >> ~/.profile
 source ~/.profile
 npm -v
 node -v
