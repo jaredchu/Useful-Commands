@@ -65,8 +65,8 @@ for dir in *; do [ -d "$dir" ] && echo "$dir" && find "$dir" | wc -l; done
 ```
 ### Chmod all file and folder in current dir
 ```
-find . -type d -exec chmod 755 {} \
-find . -type f -exec chmod 644 {} \
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
 ```
 
 # Java
