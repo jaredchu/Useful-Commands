@@ -1,7 +1,7 @@
 cd /tmp
 mkdir -p ~/bin
 
-NODE_VERSION=v12.19.0
+NODE_VERSION=v22.12.0
 ARCHIVE_NAME=node-$NODE_VERSION-linux-x64
 ARCHIVE_FILE=$ARCHIVE_NAME.tar.xz
  
